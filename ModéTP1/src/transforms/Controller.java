@@ -44,6 +44,7 @@ public class Controller {
         }
     };
 
+    
     private void updateT1() {
         t1.setX(t1x.getValue());
         t1.setY(t1y.getValue());
@@ -51,10 +52,12 @@ public class Controller {
 
     @FXML
     public void setT1X() {
+    	t1x.setValue(Double.parseDouble(tf1x.getText()));
     }
 
     @FXML
     public void setT1Y() {
+    	t1y.setValue(Double.parseDouble(tf1y.getText()));
     }
 
     @FXML

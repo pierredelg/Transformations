@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -12,140 +16,187 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxWidth="500.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transforms.Controller">
-   <Pane fx:id="pane" prefHeight="400.0" prefWidth="400.0" />
-   <Separator prefWidth="200.0" />
-    <GridPane>
+<VBox maxWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transforms.Controller">
+   <children>
+      <Pane fx:id="pane" prefHeight="400.0" prefWidth="400.0" />
+      <Separator prefWidth="200.0" />
+       <GridPane>
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="52.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="214.0" />
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints />
+               <RowConstraints />
+           </rowConstraints>
+           <children>
+               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="248.0" text="TRANSLATION 1" textAlignment="CENTER" GridPane.columnSpan="2" />
+               <CheckBox fx:id="cbt1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="2">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </CheckBox>
+               <Slider fx:id="t1x" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </GridPane.margin>
+            </Slider>
+               <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Translation en x :" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+            </Label>
+               <TextField fx:id="tf1x" alignment="CENTER_RIGHT" onAction="#setT1X" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </TextField>
+               <Slider fx:id="t1y" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                   <GridPane.margin>
+                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </GridPane.margin>
+            </Slider>
+               <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Translation en y :" GridPane.rowIndex="2">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+            </Label>
+               <TextField fx:id="tf1y" alignment="CENTER_RIGHT" onAction="#setT1Y" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </TextField>
+           </children>
+       </GridPane>
+      <Separator prefWidth="200.0" />
+       <GridPane>
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="52.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="214.0" />
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints />
+               <RowConstraints />
+           </rowConstraints>
+           <children>
+               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="248.0" text="ROTATION" textAlignment="CENTER" GridPane.columnSpan="2" />
+               <CheckBox fx:id="cbr" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="2">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </CheckBox>
+               <Slider fx:id="r" majorTickUnit="10.0" max="359.0" min="0.0" minorTickCount="5" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </GridPane.margin>
+            </Slider>
+               <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Angle:" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+            </Label>
+               <TextField fx:id="rf" alignment="CENTER_RIGHT" onAction="#setA" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </TextField>
+           </children>
+       </GridPane>
+      <Separator prefWidth="200.0" />
+       <GridPane>
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="52.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="214.0" />
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints />
+               <RowConstraints />
+           </rowConstraints>
+           <children>
+               <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="248.0" text="TRANSLATION 2" textAlignment="CENTER" GridPane.columnSpan="2" />
+               <CheckBox fx:id="cbt2" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="2">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </CheckBox>
+               <Slider fx:id="t2x" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </GridPane.margin>
+            </Slider>
+               <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Translation en x :" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+            </Label>
+               <TextField fx:id="tf2x" alignment="CENTER_RIGHT" onAction="#setT2X" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </TextField>
+               <Slider fx:id="t2y" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                   <GridPane.margin>
+                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </GridPane.margin>
+            </Slider>
+               <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Translation en y :" GridPane.rowIndex="2">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+            </Label>
+               <TextField fx:id="tf2y" alignment="CENTER_RIGHT" onAction="#setT2Y" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                   <GridPane.margin>
+                       <Insets right="20.0" />
+                   </GridPane.margin>
+               </TextField>
+           </children>
+       </GridPane>
+      <Separator prefWidth="200.0" />
+      <GridPane>
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="52.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="214.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="118.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="69.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="213.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints />
-            <RowConstraints />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
         </rowConstraints>
-        <children>
-            <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="248.0" text="TRANSLATION 1" textAlignment="CENTER" GridPane.columnSpan="2" />
-            <CheckBox fx:id="cbt1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="2">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
+         <children>
+            <Label prefHeight="21.0" prefWidth="248.0" text="             HOMOTHETIE" GridPane.columnSpan="2" />
+            <CheckBox fx:id="cbt3" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
             </CheckBox>
-            <Slider fx:id="t1x" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                </GridPane.margin></Slider>
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Translation en x :" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin></Label>
-            <TextField fx:id="tf1x" alignment="CENTER_RIGHT" onAction="#setT1X" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="15.0" prefWidth="101.0" text="Rapport:" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Slider fx:id="t3" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" prefHeight="20.0" prefWidth="184.0" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Slider>
+            <TextField fx:id="tf3" alignment="CENTER_RIGHT" onAction="#setA" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="1.0" left="1.0" right="20.0" top="1.0" />
+               </GridPane.margin>
             </TextField>
-            <Slider fx:id="t1y" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                </GridPane.margin></Slider>
-            <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Translation en y :" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin></Label>
-            <TextField fx:id="tf1y" alignment="CENTER_RIGHT" onAction="#setT1Y" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
-            </TextField>
-        </children>
-    </GridPane>
-   <Separator prefWidth="200.0" />
-    <GridPane>
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="52.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="214.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints />
-            <RowConstraints />
-        </rowConstraints>
-        <children>
-            <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="248.0" text="ROTATION" textAlignment="CENTER" GridPane.columnSpan="2" />
-            <CheckBox fx:id="cbr" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="2">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
-            </CheckBox>
-            <Slider fx:id="r" majorTickUnit="10.0" max="359.0" min="0.0" minorTickCount="5" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                </GridPane.margin></Slider>
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Angle:" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin></Label>
-            <TextField fx:id="rf" alignment="CENTER_RIGHT" onAction="#setA" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
-            </TextField>
-        </children>
-    </GridPane>
-   <Separator prefWidth="200.0" />
-    <GridPane>
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="52.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="214.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints />
-            <RowConstraints />
-        </rowConstraints>
-        <children>
-            <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="248.0" text="TRANSLATION 2" textAlignment="CENTER" GridPane.columnSpan="2" />
-            <CheckBox fx:id="cbt2" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="2">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
-            </CheckBox>
-            <Slider fx:id="t2x" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                </GridPane.margin></Slider>
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Translation en x :" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin></Label>
-            <TextField fx:id="tf2x" alignment="CENTER_RIGHT" onAction="#setT2X" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
-            </TextField>
-            <Slider fx:id="t2y" majorTickUnit="10.0" max="80.0" min="-80.0" minorTickCount="1" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                </GridPane.margin></Slider>
-            <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Translation en y :" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin></Label>
-            <TextField fx:id="tf2y" alignment="CENTER_RIGHT" onAction="#setT2Y" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets right="20.0" />
-                </GridPane.margin>
-            </TextField>
-        </children>
-    </GridPane>
-   <Separator prefWidth="200.0" />
+         </children>
+      </GridPane>
+   </children>
 </VBox>

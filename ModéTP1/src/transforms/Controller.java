@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Polyline;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Scale;
@@ -45,6 +46,7 @@ public class Controller {
     
     private Scale s1 = new Scale(1,1,0,0);
     
+    
     ChangeListener<Number> listener1 = new ChangeListener<Number>() {
         @Override
         public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -66,12 +68,14 @@ public class Controller {
     private void updateT1() {
         t1.setX(t1x.getValue());
         t1.setY(t1y.getValue());
+        
     }
     
     private void updateT3() {
     	
     	s1.setX(t3.getValue());
     	s1.setY(t3.getValue());
+  
     }
     
   
@@ -119,17 +123,18 @@ public class Controller {
 
     
     public void initialize() {
-    	Polygon polygon = new Polygon(35.0, 20.0,20.0, 40.0);
-    	//polygon.getPoints().addAll(new Double[] {35.0, 20.0,20.0, 40.0});
+    	Polyline polygon = new Polyline(200.0,200.0,200.0,140.0,230.0,110.0,260.0,140.0,260.0,200.0,245.0,200.0,245.0,155.0,230.0,155.0,230.0,200.0,200.0,200.0,260.0,200.0,260.0,140.0,200.0,140.0);
+    	Polyline polygon2 = new Polyline(200.0,200.0,200.0,140.0,230.0,110.0,260.0,140.0,260.0,200.0,245.0,200.0,245.0,155.0,230.0,155.0,230.0,200.0,200.0,200.0,260.0,200.0,260.0,140.0,200.0,140.0);
+    	polygon.setStroke(Color.BLUE);
+    	polygon.setStrokeWidth(1.4);
+    	polygon2.setStroke(Color.RED);
+    	polygon2.setStrokeWidth(1.4);
+    	
     	initializeLine();
-    	Rectangle shape1 = new Rectangle (20,40,30,50);
-    	shape1.setFill(Color.RED);
-    	Rectangle shape2 = new Rectangle (20,40,30,50);
-    	shape2.setFill(Color.BLUE);
 
-        pane.getChildren().addAll(shape1, shape2,polygon);
-        shape2.getTransforms().addAll(t1,s1);
-
+        pane.getChildren().addAll(polygon,polygon2);
+        polygon.getTransforms().addAll(t1,s1);
+       
         t1x.valueProperty().addListener(listener1);
         t1y.valueProperty().addListener(listener1);
         

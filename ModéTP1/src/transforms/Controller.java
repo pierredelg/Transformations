@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Translate;
 
@@ -87,13 +88,14 @@ public class Controller {
     }
     
     public void initialize() {
-    	
+    	Polygon polygon = new Polygon(35.0, 20.0,20.0, 40.0);
+    	//polygon.getPoints().addAll(new Double[] {35.0, 20.0,20.0, 40.0});
     	initializeLine();
     	Rectangle shape1 = new Rectangle (20,40,30,50);
     	shape1.setFill(Color.RED);
     	Rectangle shape2 = new Rectangle (20,40,30,50);
     	shape2.setFill(Color.BLUE);
-        pane.getChildren().addAll(shape1, shape2);
+        pane.getChildren().addAll(shape1, shape2,polygon);
         shape2.getTransforms().addAll(t1);
 
         t1x.valueProperty().addListener(listener1);

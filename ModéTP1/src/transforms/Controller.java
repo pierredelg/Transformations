@@ -54,6 +54,9 @@ public class Controller {
         }
     };
     
+    /**
+     *@author Pierre Delgrange
+     */
     ChangeListener<Number> listener3 = new ChangeListener<Number>() {
         @Override
         public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -62,12 +65,17 @@ public class Controller {
         }
     };
 
-    
+    /**
+     *@author PIERRE OU LUDO ?
+     */
     private void updateT1() {
         t1.setX(t1x.getValue());
         t1.setY(t1y.getValue());
     }
     
+    /**
+     *@author PIERRE OU LUDO ?
+     */
     private void updateT3() {
     	
     	s1.setX(t3.getValue());
@@ -76,18 +84,26 @@ public class Controller {
     
   
     @FXML
+    /**
+     *@author Ismerie PERROT
+     */
     public void setT1X() {
     	t1x.setValue(Double.parseDouble(tf1x.getText()));
     }
 
     @FXML
+    /**
+     *@author Ismerie PERROT
+     */
     public void setT1Y() {
     	t1y.setValue(Double.parseDouble(tf1y.getText()));
     }
-
+    
     @FXML
     public void setA() {
+    	t3.setValue(Double.parseDouble(tf3.getText()));
     }
+
 
     @FXML
     public void setT2X() {

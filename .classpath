@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="ModéTP1/src"/>
+	<classpathentry kind="lib" path="ModéTP1/out/artifacts/ModéTP1_jar/ModéTP1.jar"/>
+	<classpathentry kind="output" path="ModéTP1/out/production/ModéTP1"/>
+</classpath>

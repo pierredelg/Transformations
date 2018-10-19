@@ -96,7 +96,7 @@ public class Controller {
         }
     };
     
-    ChangeListener<Number> listene4 = new ChangeListener<Number>() {
+    ChangeListener<Number> listener4 = new ChangeListener<Number>() {
         @Override
         public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
             rf.setText(Double.toString(r.getValue()));
@@ -191,6 +191,7 @@ public class Controller {
         t1y.valueProperty().addListener(listener1);
         t2x.valueProperty().addListener(listener2);
         t2y.valueProperty().addListener(listener2);
+        r.valueProperty().addListener(listener4);
         
         t3.valueProperty().addListener(listener3);
     }

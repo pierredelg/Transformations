@@ -11,6 +11,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
 
@@ -37,6 +38,9 @@ public class Controller {
     
     @FXML 
     public Slider t3;
+    
+    @FXML 
+    public Slider r;
 
     @FXML
     public TextField tf1x;
@@ -53,10 +57,15 @@ public class Controller {
     @FXML 
     public TextField tf3;
     
+    @FXML 
+    public TextField rf;
+    
 
     private Translate t1 = new Translate(0.0, 0.0);
     
     private Translate t2 = new Translate(0.0, 0.0);
+    
+    private Rotate r1 = new Rotate(0.0);
     
     private Scale s1 = new Scale(1,1,0,0);
     
@@ -86,6 +95,14 @@ public class Controller {
             updateT3();
         }
     };
+    
+    ChangeListener<Number> listene4 = new ChangeListener<Number>() {
+        @Override
+        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            rf.setText(Double.toString(r.getValue()));
+            updateT4();
+        }
+    };
 
     
     private void updateT1() {
@@ -104,6 +121,12 @@ public class Controller {
     	s1.setY(t3.getValue());
     }
     
+    private void updateT4() {
+    	
+    	r1.setAngle(r.getValue());
+    	
+    }
+    
   
     @FXML
     public void setT1X() {
@@ -117,6 +140,7 @@ public class Controller {
 
     @FXML
     public void setA() {
+    	r1.setAngle(Double.parseDouble(rf.getText()));
     }
 
     @FXML
@@ -160,7 +184,7 @@ public class Controller {
     	shape2.setFill(Color.BLUE);
 
         pane.getChildren().addAll(shape1, shape2,polygon);
-        shape2.getTransforms().addAll(t1,s1);
+        shape2.getTransforms().addAll(t1,s1,r1);
         shape1.getTransforms().addAll(t2);
 
         t1x.valueProperty().addListener(listener1);

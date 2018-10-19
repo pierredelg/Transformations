@@ -12,6 +12,7 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Polyline;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
 
@@ -30,8 +31,17 @@ public class Controller {
     @FXML
     public Slider t1y;
     
+    @FXML
+    public Slider t2x;
+
+    @FXML
+    public Slider t2y;
+    
     @FXML 
     public Slider t3;
+    
+    @FXML 
+    public Slider r;
 
     @FXML
     public TextField tf1x;
@@ -39,10 +49,24 @@ public class Controller {
     @FXML
     public TextField tf1y;
     
+    @FXML
+    public TextField tf2x;
+
+    @FXML
+    public TextField tf2y;
+    
     @FXML 
     public TextField tf3;
+    
+    @FXML 
+    public TextField rf;
+    
 
     private Translate t1 = new Translate(0.0, 0.0);
+    
+    private Translate t2 = new Translate(0.0, 0.0);
+    
+    private Rotate r1 = new Rotate(0.0);
     
     private Scale s1 = new Scale(1,1,0,0);
     
@@ -56,14 +80,32 @@ public class Controller {
         }
     };
     
+
     /**
      *@author Pierre Delgrange
      */
+    ChangeListener<Number> listener2 = new ChangeListener<Number>() {
+        @Override
+        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            tf2x.setText(Double.toString(t2x.getValue()));
+            tf2y.setText(Double.toString(t2y.getValue()));
+            updateT2();
+        }
+    };
+
     ChangeListener<Number> listener3 = new ChangeListener<Number>() {
         @Override
         public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
             tf3.setText(Double.toString(t3.getValue()));
             updateT3();
+        }
+    };
+    
+    ChangeListener<Number> listener4 = new ChangeListener<Number>() {
+        @Override
+        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            rf.setText(Double.toString(r.getValue()));
+            updateT4();
         }
     };
 
@@ -76,14 +118,27 @@ public class Controller {
         
     }
     
+
     /**
      *@author PIERRE OU LUDO ?
      */
+    private void updateT2() {
+        t2.setX(t2x.getValue());
+        t2.setY(t2y.getValue());
+    }
+    
+
     private void updateT3() {
     	
     	s1.setX(t3.getValue());
     	s1.setY(t3.getValue());
   
+    }
+    
+    private void updateT4() {
+    	
+    	r1.setAngle(r.getValue());
+    	
     }
     
   
@@ -108,16 +163,22 @@ public class Controller {
      *@author Ismerie PERROT
      */
     public void setA() {
+    	r1.setAngle(Double.parseDouble(rf.getText()));
+    }
+    
+    public void setT3() {
     	t3.setValue(Double.parseDouble(tf3.getText()));
     }
 
 
     @FXML
     public void setT2X() {
+    	t2x.setValue(Double.parseDouble(tf2x.getText()));
     }
 
     @FXML
     public void setT2Y() {
+    	t2y.setValue(Double.parseDouble(tf2y.getText()));
     }
 
 
@@ -151,11 +212,16 @@ public class Controller {
     	
     	initializeLine();
 
+
         pane.getChildren().addAll(polygon,polygon2);
-        polygon.getTransforms().addAll(t1,s1);
-       
+        polygon.getTransforms().addAll(t1,s1,r1);
+		polygon2.getTransforms().addAll(t2);
+
         t1x.valueProperty().addListener(listener1);
         t1y.valueProperty().addListener(listener1);
+        t2x.valueProperty().addListener(listener2);
+        t2y.valueProperty().addListener(listener2);
+        r.valueProperty().addListener(listener4);
         
         t3.valueProperty().addListener(listener3);
     }

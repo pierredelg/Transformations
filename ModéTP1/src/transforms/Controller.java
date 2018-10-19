@@ -100,6 +100,9 @@ public class Controller {
     }
     
     @FXML
+    /**
+     *@author Ismerie PERROT
+     */
     public void setA() {
     	t3.setValue(Double.parseDouble(tf3.getText()));
     }

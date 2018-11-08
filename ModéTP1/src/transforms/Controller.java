@@ -3,15 +3,14 @@ package transforms;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Polyline;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
@@ -21,10 +20,21 @@ public class Controller {
     @FXML
     public Pane pane;
 
-//    //--------------- Translation 1
-//    @FXML
-//    CheckBox cbt1;
-//
+    @FXML
+    public CheckBox cbt1;
+    
+    @FXML
+    public CheckBox cbt2;
+    
+    @FXML
+    public CheckBox cbr;
+    
+    @FXML
+    public CheckBox cbh;
+    
+    @FXML 
+    public Button b1;
+
     @FXML
     public Slider t1x;
 
@@ -203,6 +213,7 @@ public class Controller {
 
     
     public void initialize() {
+    	
     	Polyline polygon = new Polyline(200.0,200.0,200.0,140.0,230.0,110.0,260.0,140.0,260.0,200.0,245.0,200.0,245.0,155.0,230.0,155.0,230.0,200.0,200.0,200.0,260.0,200.0,260.0,140.0,200.0,140.0);
     	Polyline polygon2 = new Polyline(200.0,200.0,200.0,140.0,230.0,110.0,260.0,140.0,260.0,200.0,245.0,200.0,245.0,155.0,230.0,155.0,230.0,200.0,200.0,200.0,260.0,200.0,260.0,140.0,200.0,140.0);
     	polygon.setStroke(Color.BLUE);
@@ -222,7 +233,6 @@ public class Controller {
         t2x.valueProperty().addListener(listener2);
         t2y.valueProperty().addListener(listener2);
         r.valueProperty().addListener(listener4);
-        
         t3.valueProperty().addListener(listener3);
     }
 }
